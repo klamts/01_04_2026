@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Learning - Famous People & Adjectives</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #2563eb;
+    --primary-light: #dbeafe;
+    --accent: #f59e0b;
+    --accent-light: #fef3c7;
+    --green: #10b981;
+    --green-light: #d1fae5;
+    --purple: #7c3aed;
+    --purple-light: #ede9fe;
+    --pink: #ec4899;
+    --pink-light: #fce7f3;
+    --bg: #f0f9ff;
+    --card: #ffffff;
+    --text: #1e293b;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --radius: 16px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  h1.page-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    text-align: center;
+    color: var(--muted);
+    margin-bottom: 32px;
+    font-size: 1rem;
+  }
+
+  /* SECTION */
+  .section {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 28px;
+    box-shadow: 0 4px 20px rgba(37,99,235,0.07);
+    border: 1.5px solid var(--border);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-badge {
+    font-family: 'Baloo 2', cursive;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 99px;
+    letter-spacing: 0.5px;
+  }
+
+  .badge-blue { background: var(--primary-light); color: var(--primary); }
+  .badge-amber { background: var(--accent-light); color: #b45309; }
+  .badge-green { background: var(--green-light); color: #065f46; }
+  .badge-purple { background: var(--purple-light); color: var(--purple); }
+
+  .section-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  /* DIALOGUE */
+  .dialogue-block {
+    background: var(--bg);
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 16px;
+    border-left: 4px solid var(--primary);
+  }
+
+  .dialogue-block h3 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .dialogue-line {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px dashed var(--border);
+  }
+
+  .dialogue-line:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .speaker {
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 0.9rem;
+  }
+
+  .line-en {
+    font-size: 1rem;
+    color: var(--text);
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  .line-vi {
+    font-size: 0.88rem;
+    color: var(--muted);
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  .line-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+  }
+
+  /* BUTTONS */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 16px;
+    border-radius: 99px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+  }
+
+  .btn:active { transform: scale(0.96); }
+
+  .btn-play {
+    background: var(--primary);
+    color: white;
+  }
+  .btn-play:hover { background: #1d4ed8; }
+
+  .btn-play.playing {
+    background: var(--green);
+  }
+
+  .btn-vi {
+    background: var(--accent-light);
+    color: #92400e;
+    border: 1.5px solid var(--accent);
+  }
+  .btn-vi:hover { background: var(--accent); color: white; }
+  .btn-vi.active { background: var(--accent); color: white; }
+
+  .btn-request {
+    background: var(--pink-light);
+    color: #9d174d;
+    border: 1.5px solid var(--pink);
+    font-size: 0.8rem;
+  }
+  .btn-request:hover { background: var(--pink); color: white; }
+
+  /* VOCAB WORD BANK */
+  .word-bank {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+    padding: 16px;
+    background: var(--purple-light);
+    border-radius: 12px;
+  }
+
+  .word-chip {
+    background: var(--purple);
+    color: white;
+    padding: 5px 14px;
+    border-radius: 99px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    font-family: 'Baloo 2', cursive;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .word-chip:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(124,58,237,0.3);
+  }
+
+  /* PART 2 FILL */
+  .fill-item {
+    background: var(--bg);
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+    border: 1.5px solid var(--border);
+    transition: border-color 0.2s;
+  }
+  .fill-item:hover { border-color: var(--primary); }
+
+  .fill-num {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 26px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-right: 8px;
+    flex-shrink: 0;
+  }
+
+  .fill-sentence {
+    font-size: 0.97rem;
+    line-height: 1.6;
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .fill-vi {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 4px;
+    display: block;
+  }
+
+  .blank-input {
+    border: none;
+    border-bottom: 2.5px solid var(--primary);
+    background: transparent;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.97rem;
+    font-weight: 700;
+    color: var(--primary);
+    width: 110px;
+    text-align: center;
+    padding: 2px 4px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .blank-input:focus { border-color: var(--accent); }
+  .blank-input.correct { border-color: var(--green); color: var(--green); }
+  .blank-input.wrong { border-color: #ef4444; color: #ef4444; }
+
+  .answer-tag {
+    display: inline-block;
+    background: var(--green-light);
+    color: #065f46;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 99px;
+    font-size: 0.8rem;
+    margin-left: 6px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .answer-tag.show { opacity: 1; }
+
+  .fill-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+
+  /* TABLE PART 3 */
+  .activity-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 8px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1.5px solid var(--border);
+  }
+
+  .activity-table thead tr {
+    background: var(--primary);
+    color: white;
+  }
+
+  .activity-table th {
+    padding: 12px 16px;
+    font-family: 'Baloo 2', cursive;
+    font-size: 0.9rem;
+    text-align: left;
+    font-weight: 700;
+  }
+
+  .activity-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+    font-size: 0.93rem;
+  }
+
+  .activity-table tbody tr:last-child td { border-bottom: none; }
+
+  .activity-table tbody tr:nth-child(even) td { background: var(--bg); }
+
+  .category-label {
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 0.9rem;
+  }
+
+  .example-text {
+    color: var(--green);
+    font-style: italic;
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin-top: 2px;
+  }
+
+  .student-input {
+    width: 100%;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.9rem;
+    background: var(--bg);
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .student-input:focus { border-color: var(--primary); background: white; }
+
+  /* PART 4 */
+  .model-card {
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--purple-light) 100%);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+    border: 1.5px solid #c7d2fe;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .model-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+
+  .model-text {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .model-vi {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 4px;
+    font-weight: 400;
+  }
+
+  .writing-box {
+    background: white;
+    border: 2px dashed var(--primary);
+    border-radius: 12px;
+    padding: 16px;
+    min-height: 120px;
+    margin-top: 4px;
+  }
+
+  .writing-box textarea {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text);
+    resize: vertical;
+    min-height: 100px;
+    background: transparent;
+    line-height: 1.7;
+  }
+
+  .writing-hint {
+    color: var(--muted);
+    font-size: 0.83rem;
+    margin-bottom: 6px;
+    font-style: italic;
+  }
+
+  .btn-gram {
+    background: #f0f9ff;
+    color: #0369a1;
+    border: 1.5px solid #7dd3fc;
+    font-size: 0.82rem;
+  }
+  .btn-gram:hover { background: #0ea5e9; color: white; border-color: #0ea5e9; }
+  .btn-gram.revealed { background: #0ea5e9; color: white; border-color: #0ea5e9; }
+
+  .gram-panel {
+    display: none;
+    margin-top: 10px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1.5px solid #7dd3fc;
+    font-size: 0.87rem;
+  }
+  .gram-panel.open { display: block; }
+
+  .gram-header {
+    background: linear-gradient(90deg, #0ea5e9, #7c3aed);
+    color: white;
+    padding: 8px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 0.88rem;
+  }
+
+  .gram-body {
+    background: #f0f9ff;
+    padding: 12px 14px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  @media(max-width:600px){ .gram-body { grid-template-columns: 1fr; } }
+
+  .gram-card {
+    background: white;
+    border-radius: 8px;
+    padding: 10px 12px;
+    border: 1px solid #e0f2fe;
+  }
+  .gram-card-title {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #0369a1;
+    margin-bottom: 5px;
+  }
+  .gram-card p { font-size: 0.85rem; line-height: 1.55; color: #334155; margin-bottom: 3px; }
+  .gram-card .clue-chip {
+    display: inline-block;
+    background: #fef9c3;
+    color: #854d0e;
+    border: 1px solid #fde047;
+    border-radius: 6px;
+    padding: 1px 8px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin: 2px 2px 2px 0;
+  }
+  .gram-card .wrong-chip {
+    display: inline-block;
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fca5a5;
+    border-radius: 6px;
+    padding: 1px 8px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin: 2px 2px 2px 0;
+  }
+  .gram-word-badge {
+    display: inline-block;
+    background: #dbeafe;
+    color: #1d4ed8;
+    border: 1.5px solid #93c5fd;
+    border-radius: 8px;
+    padding: 3px 12px;
+    font-weight: 800;
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+  .gram-type-badge {
+    display: inline-block;
+    background: #ede9fe;
+    color: #6d28d9;
+    border-radius: 6px;
+    padding: 2px 9px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-left: 6px;
+  }
+
+  .btn-answer {
+    background: var(--green-light);
+    color: #065f46;
+    border: 1.5px solid var(--green);
+    font-size: 0.82rem;
+  }
+  .btn-answer:hover { background: var(--green); color: white; }
+  .btn-answer.revealed { background: var(--green); color: white; }
+
+  .btn-show-all {
+    background: #1e293b;
+    color: white;
+    font-size: 0.85rem;
+    margin-bottom: 16px;
+  }
+  .btn-show-all:hover { background: #334155; }
+
+  .answer-reveal {
+    display: none;
+    background: #f0fdf4;
+    border: 1.5px solid var(--green);
+    border-radius: 10px;
+    padding: 10px 14px;
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: #065f46;
+    font-weight: 700;
+  }
+  .answer-reveal.open { display: block; }
+  .answer-reveal .answer-full {
+    font-size: 0.97rem;
+    color: var(--primary);
+    font-weight: 800;
+    margin-bottom: 4px;
+  }
+  .answer-reveal .answer-vi {
+    font-size: 0.83rem;
+    color: var(--muted);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .p3-answer {
+    display: none;
+    margin-top: 6px;
+    background: #f0fdf4;
+    border: 1.5px dashed var(--green);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    color: #065f46;
+    font-weight: 600;
+  }
+  .p3-answer.open { display: block; }
+  .p3-answer span { color: var(--primary); font-weight: 800; }
+
+  .p4-answer {
+    display: none;
+    background: #eff6ff;
+    border: 2px dashed var(--primary);
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-top: 10px;
+    font-size: 0.93rem;
+    color: var(--primary);
+    font-weight: 700;
+    line-height: 1.7;
+  }
+  .p4-answer.open { display: block; }
+  .p4-answer .p4-vi {
+    font-size: 0.83rem;
+    color: var(--muted);
+    font-style: italic;
+    font-weight: 400;
+    margin-top: 4px;
+    display: none;
+  }
+  .p4-answer .p4-vi.open { display: block; }
+
+  /* LANGUAGE NOTE */
+  .lang-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .note-phrase {
+    background: linear-gradient(90deg, #fbbf24, #f59e0b);
+    color: #1e293b;
+    font-weight: 800;
+    font-size: 0.95rem;
+    padding: 1px 7px;
+    border-radius: 6px;
+    border-bottom: 2.5px solid #d97706;
+    text-decoration: underline dotted #d97706;
+    cursor: help;
+  }
+
+  .note-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background: #f59e0b;
+    color: white;
+    border-radius: 50%;
+    font-size: 0.72rem;
+    font-weight: 800;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+  }
+
+  .lang-note:hover .note-icon { transform: scale(1.2); }
+
+  .note-box {
+    display: none;
+    background: #fffbeb;
+    border: 2px solid #f59e0b;
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin-top: 8px;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--text);
+    box-shadow: 0 4px 14px rgba(245,158,11,0.15);
+  }
+
+  .note-box.open { display: block; }
+
+  .note-box .note-title {
+    font-weight: 800;
+    color: #92400e;
+    font-size: 0.92rem;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .note-box .note-meaning {
+    color: #1e293b;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+  .note-box .note-explain {
+    color: var(--muted);
+    font-size: 0.84rem;
+  }
+
+  .note-box .note-examples {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed #fcd34d;
+  }
+
+  .note-box .note-ex-item {
+    font-size: 0.83rem;
+    color: #374151;
+    margin-bottom: 3px;
+  }
+
+  .note-box .note-ex-item em {
+    font-style: italic;
+    color: var(--primary);
+  }
+
+  /* TTS HELPER */
+  .tts-bar {
+    background: linear-gradient(90deg, var(--pink-light), var(--accent-light));
+    border: 1.5px solid var(--pink);
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .tts-icon { font-size: 1.5rem; }
+
+  .tts-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #9d174d;
+    flex: 1;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    body { padding: 12px; }
+    .section { padding: 16px; }
+    h1.page-title { font-size: 1.5rem; }
+    .activity-table th, .activity-table td { padding: 8px 10px; font-size: 0.82rem; }
+  }
+</style>
+</head>
+<body>
+
+<h1 class="page-title">🌟 English with Me!</h1>
+<p class="subtitle">Học tiếng Anh qua hội thoại & từ vựng thú vị</p>
+
+<!-- ==================== PART 1 ==================== -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-badge badge-blue">PART 1</span>
+    <span class="section-title">Hội thoại – Dialogues 🎙️</span>
+  </div>
+
+  <div class="tts-bar">
+    <span class="tts-icon">🧒</span>
+    <span class="tts-label">Em nhỏ sẽ giúp phiên dịch các câu tiếng Việt sang tiếng Anh. Nghe yêu cầu rồi nói lại giúp nhé!</span>
+  </div>
+
+  <!-- Dialogue 1 -->
+  <div class="dialogue-block">
+    <h3>📖 Hội thoại 1 – Millie Bobby Brown</h3>
+
+    <div class="dialogue-line">
+      <span class="speaker">Người 1 →</span>
+      <span class="line-en">Hey, Erica. What do you think of Millie Bobby Brown, the actor in Stranger Things?</span>
+      <span class="line-vi" id="vi-1-1" style="display:none">Này Erica. Bạn nghĩ sao về Millie Bobby Brown, diễn viên trong phim Stranger Things?</span>
+      <div class="line-controls">
+        <button class="btn btn-play" onclick="playAudio('audio/1.wav', this)">▶ Nghe tiếng Anh</button>
+        <button class="btn btn-vi" onclick="toggleVi('vi-1-1', this)">🇻🇳 Xem tiếng Việt</button>
+        <button class="btn btn-request" onclick="speakRequest('Này Erica. Bạn nghĩ sao về Millie Bobby Brown, diễn viên trong phim Stranger Things?')">🧒 Em đọc câu tiếng Việt này giúp tôi</button>
+      </div>
+    </div>
+
+    <div class="dialogue-line">
+      <span class="speaker">Erica →</span>
+      <span class="line-en">
+        <span class="lang-note" onclick="toggleNote('note-oh-her')">
+          <span class="note-phrase">Oh, her.</span>
+          <span class="note-icon">💡</span>
+        </span>
+        I think she's amazing and she's very pretty. What about you?
+      </span>
+      <div class="note-box" id="note-oh-her">
+        <div class="note-title">💡 "Oh, her."</div>
+        <div class="note-meaning">🔤 Nghĩa: "Ồ, cô ấy hả." / "À, cô ấy!"</div>
+        <div class="note-explain">Dùng đại từ <b>"her"</b> thay cho tên người vừa được nhắc đến. Câu cảm thán ngắn này thể hiện sự <b>nhận ra</b> hoặc <b>ngạc nhiên nhẹ</b> khi nghe tên ai đó. Giọng điệu thường lên cao ở "Oh" rồi hạ xuống ở "her".</div>
+        <div class="note-examples">
+          <div class="note-ex-item">🗣 <em>"Oh, him."</em> → Ồ, anh ấy hả. (nói về đàn ông)</div>
+          <div class="note-ex-item">🗣 <em>"Oh, them."</em> → Ồ, nhóm đó hả. (nói về nhiều người)</div>
+          <div class="note-ex-item">🗣 <em>"Oh, that movie."</em> → Ồ, bộ phim đó hả.</div>
+        </div>
+      </div>
+      <span class="line-vi" id="vi-1-2" style="display:none">Ồ, cô ấy hả. Mình nghĩ cô ấy thật tuyệt vời và rất xinh đẹp. Còn bạn thì sao?</span>
+      <div class="line-controls">
+        <button class="btn btn-play" onclick="playAudio('audio/2.wav', this)">▶ Nghe tiếng Anh</button>
+        <button class="btn btn-vi" onclick="toggleVi('vi-1-2', this)">🇻🇳 Xem tiếng Việt</button>
+        <button class="btn btn-request" onclick="speakRequest('Ồ, cô ấy hả. Mình nghĩ cô ấy thật tuyệt vời và rất xinh đẹp. Còn bạn thì sao?')">🧒 Em đọc câu tiếng Việt này giúp tôi</button>
+      </div>
+    </div>
+
+    <div class="dialogue-line">
+      <span class="speaker">Người 1 →</span>
+      <span class="line-en">
+        I think she's wonderful and she's really talented, too. She's my favorite actor
+        <span class="lang-note" onclick="toggleNote('note-in-fact')">
+          <span class="note-phrase">in fact</span>
+          <span class="note-icon">💡</span>
+        </span>.
+      </span>
+      <div class="note-box" id="note-in-fact">
+        <div class="note-title">💡 "in fact"</div>
+        <div class="note-meaning">🔤 Nghĩa: "thực ra" / "thật ra" / "thú thực là"</div>
+        <div class="note-explain">Cụm trạng từ dùng để <b>nhấn mạnh</b> điều vừa nói là <b>sự thật</b>, hoặc thêm thông tin <b>bổ sung / bất ngờ</b> hơn. Thường đặt ở <b>cuối hoặc giữa câu</b>.</div>
+        <div class="note-examples">
+          <div class="note-ex-item">🗣 <em>"He's very famous. In fact, everyone knows him."</em> → Anh ấy rất nổi tiếng. Thực ra, ai cũng biết anh ấy.</div>
+          <div class="note-ex-item">🗣 <em>"She's my best friend, in fact."</em> → Thực ra cô ấy là bạn thân nhất của tôi.</div>
+          <div class="note-ex-item">⚠️ Khác với <b>"actually"</b> – cùng nghĩa nhưng dùng khi đính chính điều gì đó.</div>
+        </div>
+      </div>
+      <span class="line-vi" id="vi-1-3" style="display:none">Mình nghĩ cô ấy thật kỳ diệu và cũng thực sự tài năng nữa. Thú thực cô ấy là diễn viên yêu thích của mình.</span>
+      <div class="line-controls">
+        <button class="btn btn-play" onclick="playAudio('audio/3.wav', this)">▶ Nghe tiếng Anh</button>
+        <button class="btn btn-vi" onclick="toggleVi('vi-1-3', this)">🇻🇳 Xem tiếng Việt</button>
+        <button class="btn btn-request" onclick="speakRequest('Mình nghĩ cô ấy thật kỳ diệu và cũng thực sự tài năng nữa. Thú thực cô ấy là diễn viên yêu thích của mình.')">🧒 Em đọc câu tiếng Việt này giúp tôi</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dialogue 2 -->
+  <div class="dialogue-block" style="border-left-color: var(--green);">
+    <h3 style="color:var(--green);">📖 Hội thoại 2 – Usain Bolt</h3>
+
+    <div class="dialogue-line">
+      <span class="speaker" style="color:var(--green);">Người 1 →</span>
+      <span class="line-en">Do you like Usain Bolt, Alex?</span>
+      <span class="line-vi" id="vi-2-1" style="display:none">Bạn có thích Usain Bolt không, Alex?</span>
+      <div class="line-controls">
+        <button class="btn btn-play" onclick="playAudio('audio/4.wav', this)">▶ Nghe tiếng Anh</button>
+        <button class="btn btn-vi" onclick="toggleVi('vi-2-1', this)">🇻🇳 Xem tiếng Việt</button>
+        <button class="btn btn-request" onclick="speakRequest('Bạn có thích Usain Bolt không, Alex?')">🧒 Em đọc câu tiếng Việt này giúp tôi</button>
+      </div>
+    </div>
+
+    <div class="dialogue-line">
+      <span class="speaker" style="color:var(--green);">Alex →</span>
+      <span class="line-en">Do you mean the famous athlete from Jamaica?</span>
+      <span class="line-vi" id="vi-2-2" style="display:none">Ý bạn là vận động viên nổi tiếng người Jamaica phải không?</span>
+      <div class="line-controls">
+        <button class="btn btn-play" onclick="playAudio('audio/5.wav', this)">▶ Nghe tiếng Anh</button>
+        <button class="btn btn-vi" onclick="toggleVi('vi-2-2', this)">🇻🇳 Xem tiếng Việt</button>
+        <button class="btn btn-request" onclick="speakRequest('Ý bạn là vận động viên nổi tiếng người Jamaica phải không?')">🧒 Em đọc câu tiếng Việt này giúp tôi</button>
+      </div>
+    </div>
+
+    <div class="dialogue-line">
+      <span class="speaker" style="color:var(--green);">Người 1 →</span>
+      <span class="line-en">Yes, that's right.</span>
+      <span class="line-vi" id="vi-2-3" style="display:none">Đúng rồi đó.</span>
+      <div class="line-controls">
+        <button class="btn btn-play" onclick="playAudio('audio/6.wav', this)">▶ Nghe tiếng Anh</button>
+        <button class="btn btn-vi" onclick="toggleVi('vi-2-3', this)">🇻🇳 Xem tiếng Việt</button>
+        <button class="btn btn-request" onclick="speakRequest('Đúng rồi đó.')">🧒 Em đọc câu tiếng Việt này giúp tôi</button>
+      </div>
+    </div>
+
+    <div class="dialogue-line">
+      <span class="speaker" style="color:var(--green);">Alex →</span>
+      <span class="line-en">
+        <span class="lang-note" onclick="toggleNote('note-well')">
+          <span class="note-phrase">Well,</span>
+          <span class="note-icon">💡</span>
+        </span>
+        he's very talented and sometimes he's funny, but he's not my favorite athlete.
+      </span>
+      <div class="note-box" id="note-well">
+        <div class="note-title">💡 "Well,"</div>
+        <div class="note-meaning">🔤 Nghĩa: "Chà," / "Ừm," / "Thì..." (tiểu từ đệm)</div>
+        <div class="note-explain">Dùng ở <b>đầu câu</b> để <b>lấy thời gian suy nghĩ</b>, thể hiện sự <b>do dự nhẹ</b> trước khi đưa ra ý kiến. Không có nghĩa cụ thể nhưng làm câu nghe <b>tự nhiên</b> hơn trong hội thoại.</div>
+        <div class="note-examples">
+          <div class="note-ex-item">🗣 <em>"Well, I think he's okay."</em> → Ừm, tôi nghĩ anh ấy cũng ổn.</div>
+          <div class="note-ex-item">🗣 <em>"Well, it's not easy."</em> → Thì, không dễ đâu.</div>
+          <div class="note-ex-item">🗣 <em>"Well, that's a good question."</em> → Chà, đó là câu hỏi hay đấy.</div>
+          <div class="note-ex-item">💡 Hay gặp kèm: <b>Well, I think... / Well, actually... / Well, maybe...</b></div>
+        </div>
+      </div>
+      <span class="line-vi" id="vi-2-4" style="display:none">Chà, anh ấy rất tài năng và đôi khi cũng hài hước nữa, nhưng anh ấy không phải vận động viên yêu thích của mình.</span>
+      <div class="line-controls">
+        <button class="btn btn-play" onclick="playAudio('audio/7.wav', this)">▶ Nghe tiếng Anh</button>
+        <button class="btn btn-vi" onclick="toggleVi('vi-2-4', this)">🇻🇳 Xem tiếng Việt</button>
+        <button class="btn btn-request" onclick="speakRequest('Chà, anh ấy rất tài năng và đôi khi cũng hài hước nữa, nhưng anh ấy không phải vận động viên yêu thích của mình.')">🧒 Em đọc câu tiếng Việt này giúp tôi</button>
+      </div>
+    </div>
+
+    <div class="dialogue-line">
+      <span class="speaker" style="color:var(--green);">Người 1 →</span>
+      <span class="line-en">
+        <span class="lang-note" onclick="toggleNote('note-really')">
+          <span class="note-phrase">Really?</span>
+          <span class="note-icon">💡</span>
+        </span>
+        I don't agree. I think he's really cool. He's my favorite.
+      </span>
+      <div class="note-box" id="note-really">
+        <div class="note-title">💡 "Really?"</div>
+        <div class="note-meaning">🔤 Nghĩa: "Thật sao?" / "Ôi thế à?" / "Vậy hả?"</div>
+        <div class="note-explain">Câu hỏi ngắn thể hiện sự <b>ngạc nhiên, không tin</b> hoặc <b>phản ứng với điều vừa nghe</b>. Giọng thường lên cao ở cuối. <b>Không phải hỏi thông tin</b> – chỉ là cảm thán.</div>
+        <div class="note-examples">
+          <div class="note-ex-item">🗣 A: <em>"I won first place!"</em> → B: <em>"Really? That's amazing!"</em> → Thật sao? Tuyệt quá!</div>
+          <div class="note-ex-item">🗣 A: <em>"She's only 10 years old."</em> → B: <em>"Really?"</em> → Thật không?</div>
+          <div class="note-ex-item">⚠️ Phân biệt: <b>"Really?"</b> (ngạc nhiên) vs <b>"really"</b> trong câu = "thực sự" (e.g. <em>He's really cool.</em>)</div>
+        </div>
+      </div>
+      <span class="line-vi" id="vi-2-5" style="display:none">Thật sao? Mình không đồng ý đâu. Mình nghĩ anh ấy thực sự rất ngầu. Anh ấy là thần tượng của mình.</span>
+      <div class="line-controls">
+        <button class="btn btn-play" onclick="playAudio('audio/8.wav', this)">▶ Nghe tiếng Anh</button>
+        <button class="btn btn-vi" onclick="toggleVi('vi-2-5', this)">🇻🇳 Xem tiếng Việt</button>
+        <button class="btn btn-request" onclick="speakRequest('Thật sao? Mình không đồng ý đâu. Mình nghĩ anh ấy thực sự rất ngầu. Anh ấy là thần tượng của mình.')">🧒 Em đọc câu tiếng Việt này giúp tôi</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PART 2 ==================== -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-badge badge-amber">PART 2</span>
+    <span class="section-title">Điền từ – Fill in the Blanks ✏️</span>
+  </div>
+
+  <div class="tts-bar" style="border-color: #a855f7; background: linear-gradient(90deg, var(--purple-light), var(--pink-light));">
+    <span class="tts-icon">🧒</span>
+    <span class="tts-label" style="color: var(--purple);">Em nhỏ sẽ đọc yêu cầu bằng tiếng Việt, giúp các bạn điền từ vào chỗ trống!</span>
+  </div>
+
+  <div class="word-bank">
+    <span style="font-weight:700; color: var(--purple); margin-right:4px;">📚 Word Bank:</span>
+    <span class="word-chip">actor</span>
+    <span class="word-chip">amazing</span>
+    <span class="word-chip">athletes</span>
+    <span class="word-chip">brave</span>
+    <span class="word-chip">cool</span>
+    <span class="word-chip">famous</span>
+    <span class="word-chip">funny</span>
+    <span class="word-chip">great</span>
+    <span class="word-chip">handsome</span>
+    <span class="word-chip">movies</span>
+    <span class="word-chip">person</span>
+    <span class="word-chip">popular</span>
+    <span class="word-chip">pretty</span>
+    <span class="word-chip">talented</span>
+    <span class="word-chip">wonderful</span>
+  </div>
+
+  <!-- Show all answers toggle -->
+  <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px; flex-wrap:wrap;">
+    <button class="btn btn-show-all" onclick="toggleAllAnswers()">👁 Hiện / Ẩn tất cả đáp án</button>
+    <span style="font-size:0.82rem; color:var(--muted); font-style:italic;">Giáo viên dùng để chiếu đáp án cho cả lớp</span>
+  </div>
+  <!-- Items -->
+  <div id="part2-items"></div>
+</div>
+
+<!-- ==================== PART 3 ==================== -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-badge badge-green">PART 3</span>
+    <span class="section-title">Write – Viết theo mẫu 📝</span>
+  </div>
+
+  <p style="margin-bottom:16px; color:var(--muted); font-size:0.92rem;">List one example of each. Write <b>two adjectives</b> to describe them. / Liệt kê một ví dụ và viết <b>hai tính từ</b> để mô tả.</p>
+
+  <table class="activity-table">
+    <thead>
+      <tr>
+        <th>Category / Loại</th>
+        <th>My Choice / Lựa chọn của em</th>
+        <th>My Opinion / Nhận xét của em</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <span class="category-label">🎬 An actor</span><br>
+          <span style="color:var(--muted); font-size:0.8rem; font-style:italic;">Một diễn viên</span>
+          <div class="p3-answer" id="p3a-1"><span>Millie Bobby Brown</span></div>
+          <button class="btn btn-answer" style="margin-top:6px; font-size:0.75rem; padding:4px 10px;" onclick="toggleP3Answer('p3a-1','p3b-1',this)">👁 Xem đáp án mẫu</button>
+        </td>
+        <td>
+          <input class="student-input" id="p3-choice-1" placeholder="Your choice...">
+          <div class="p3-answer" id="p3b-1"><span>Millie Bobby Brown</span></div>
+        </td>
+        <td>
+          <input class="student-input" id="p3-opinion-1" placeholder="Two adjectives...">
+          <div class="p3-answer" id="p3c-1"><span>wonderful, talented</span><br><span style="font-size:0.8rem;color:var(--muted);font-style:italic;">tuyệt vời, tài năng</span></div>
+          <button class="btn btn-answer" style="margin-top:6px; font-size:0.75rem; padding:4px 10px;" onclick="toggleP3Answer('p3c-1', null, this)">👁 Gợi ý</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span class="category-label">🐾 A cartoon character</span><br>
+          <span style="color:var(--muted); font-size:0.8rem; font-style:italic;">Một nhân vật hoạt hình</span>
+          <div class="p3-answer" id="p3a-2"><span>Doraemon / SpongeBob / Elsa...</span></div>
+          <button class="btn btn-answer" style="margin-top:6px; font-size:0.75rem; padding:4px 10px;" onclick="toggleP3Answer('p3a-2','p3b-2',this)">👁 Xem đáp án mẫu</button>
+        </td>
+        <td>
+          <input class="student-input" id="p3-choice-2" placeholder="Your choice...">
+          <div class="p3-answer" id="p3b-2"><span>Doraemon / SpongeBob / Elsa...</span></div>
+        </td>
+        <td>
+          <input class="student-input" id="p3-opinion-2" placeholder="Two adjectives...">
+          <div class="p3-answer" id="p3c-2"><span>funny, popular / cool, amazing...</span><br><span style="font-size:0.8rem;color:var(--muted);font-style:italic;">hài hước, nổi tiếng / ngầu, tuyệt vời...</span></div>
+          <button class="btn btn-answer" style="margin-top:6px; font-size:0.75rem; padding:4px 10px;" onclick="toggleP3Answer('p3c-2', null, this)">👁 Gợi ý</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span class="category-label">🌏 A popular person or place in your country</span><br>
+          <span style="color:var(--muted); font-size:0.8rem; font-style:italic;">Người nổi tiếng hoặc địa điểm ở nước bạn</span>
+          <div class="p3-answer" id="p3a-3"><span>Hồ Chí Minh City / Hội An / Sơn Tùng M-TP...</span></div>
+          <button class="btn btn-answer" style="margin-top:6px; font-size:0.75rem; padding:4px 10px;" onclick="toggleP3Answer('p3a-3','p3b-3',this)">👁 Xem đáp án mẫu</button>
+        </td>
+        <td>
+          <input class="student-input" id="p3-choice-3" placeholder="Your choice...">
+          <div class="p3-answer" id="p3b-3"><span>Hội An / Sơn Tùng M-TP...</span></div>
+        </td>
+        <td>
+          <input class="student-input" id="p3-opinion-3" placeholder="Two adjectives...">
+          <div class="p3-answer" id="p3c-3"><span>beautiful, famous / talented, popular...</span><br><span style="font-size:0.8rem;color:var(--muted);font-style:italic;">xinh đẹp, nổi tiếng / tài năng, phổ biến...</span></div>
+          <button class="btn btn-answer" style="margin-top:6px; font-size:0.75rem; padding:4px 10px;" onclick="toggleP3Answer('p3c-3', null, this)">👁 Gợi ý</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span class="category-label">🎞️ A great movie or a silly movie</span><br>
+          <span style="color:var(--muted); font-size:0.8rem; font-style:italic;">Một bộ phim hay hoặc buồn cười</span>
+          <div class="p3-answer" id="p3a-4"><span>Avengers / Inside Out / Doraemon Movie...</span></div>
+          <button class="btn btn-answer" style="margin-top:6px; font-size:0.75rem; padding:4px 10px;" onclick="toggleP3Answer('p3a-4','p3b-4',this)">👁 Xem đáp án mẫu</button>
+        </td>
+        <td>
+          <input class="student-input" id="p3-choice-4" placeholder="Your choice...">
+          <div class="p3-answer" id="p3b-4"><span>Avengers / Inside Out...</span></div>
+        </td>
+        <td>
+          <input class="student-input" id="p3-opinion-4" placeholder="Two adjectives...">
+          <div class="p3-answer" id="p3c-4"><span>great, amazing / funny, wonderful...</span><br><span style="font-size:0.8rem;color:var(--muted);font-style:italic;">tuyệt vời, ấn tượng / hài hước, kỳ diệu...</span></div>
+          <button class="btn btn-answer" style="margin-top:6px; font-size:0.75rem; padding:4px 10px;" onclick="toggleP3Answer('p3c-4', null, this)">👁 Gợi ý</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ==================== PART 4 ==================== -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-badge badge-purple">PART 4</span>
+    <span class="section-title">Write About People or Things 🖊️</span>
+  </div>
+
+  <p style="margin-bottom:14px; color:var(--muted); font-size:0.92rem;">Write about two people or things in Activity 3. / Viết về hai người hoặc sự vật trong hoạt động 3.</p>
+
+  <!-- Model text -->
+  <div class="model-card">
+    <span class="model-icon">📌</span>
+    <div style="flex:1;">
+      <div class="model-text">
+        I really like the actor Millie Bobby Brown. I think she's wonderful. And she's talented, too.
+      </div>
+      <div class="model-vi" id="model-vi" style="display:none">Tôi thực sự thích diễn viên Millie Bobby Brown. Tôi nghĩ cô ấy thật tuyệt vời. Và cô ấy cũng rất tài năng nữa.</div>
+      <div style="display:flex; gap:8px; margin-top:10px; flex-wrap:wrap;">
+        <button class="btn btn-play" onclick="playAudio('part4/1.wav', this)">▶ Nghe mẫu</button>
+        <button class="btn btn-vi" onclick="toggleVi('model-vi', this)">🇻🇳 Xem tiếng Việt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Student writing area 1 -->
+  <p style="font-weight:700; color:var(--primary); margin-bottom:6px;">✏️ Your turn – Person/Thing 1:</p>
+  <p class="writing-hint">Viết về người hoặc vật thứ nhất bạn chọn trong bảng trên.</p>
+  <div class="writing-box">
+    <textarea id="p4-text-1" placeholder="I really like _____. I think _____ is/are _____. And _____ is/are _____, too." oninput="syncP4Answer(1)"></textarea>
+  </div>
+  <div style="display:flex; gap:8px; margin-top:8px; flex-wrap:wrap; align-items:center;">
+    <button class="btn btn-answer" onclick="toggleP4Answer('p4ans-1', 'p4ansvi-1', this)">👁 Xem câu mẫu đáp án</button>
+    <button class="btn btn-vi" style="font-size:0.78rem; padding:5px 12px;" onclick="toggleP4Vi('p4ansvi-1', this)">🇻🇳 Dịch tiếng Việt</button>
+  </div>
+  <div class="p4-answer" id="p4ans-1">
+    <div id="p4ans-text-1">I really like the actor <b>Millie Bobby Brown</b>. I think she's <b>wonderful</b>. And she's <b>talented</b>, too.</div>
+    <div class="p4-vi" id="p4ansvi-1">Tôi thực sự thích diễn viên Millie Bobby Brown. Tôi nghĩ cô ấy thật tuyệt vời. Và cô ấy cũng rất tài năng nữa.</div>
+  </div>
+
+  <br>
+
+  <!-- Student writing area 2 -->
+  <p style="font-weight:700; color:var(--primary); margin-bottom:6px;">✏️ Your turn – Person/Thing 2:</p>
+  <p class="writing-hint">Viết về người hoặc vật thứ hai bạn chọn trong bảng trên.</p>
+  <div class="writing-box">
+    <textarea id="p4-text-2" placeholder="I really like _____. I think _____ is/are _____. And _____ is/are _____, too." oninput="syncP4Answer(2)"></textarea>
+  </div>
+  <div style="display:flex; gap:8px; margin-top:8px; flex-wrap:wrap; align-items:center;">
+    <button class="btn btn-answer" onclick="toggleP4Answer('p4ans-2', 'p4ansvi-2', this)">👁 Xem câu mẫu đáp án</button>
+    <button class="btn btn-vi" style="font-size:0.78rem; padding:5px 12px;" onclick="toggleP4Vi('p4ansvi-2', this)">🇻🇳 Dịch tiếng Việt</button>
+  </div>
+  <div class="p4-answer" id="p4ans-2">
+    <div id="p4ans-text-2">I really like the cartoon character <b>Doraemon</b>. I think he's <b>funny</b>. And he's <b>popular</b>, too.</div>
+    <div class="p4-vi" id="p4ansvi-2">Tôi thực sự thích nhân vật hoạt hình Doraemon. Tôi nghĩ anh ấy rất hài hước. Và anh ấy cũng rất nổi tiếng nữa.</div>
+  </div>
+</div>
+
+<script>
+function toggleNote(id) {
+  const box = document.getElementById(id);
+  if (!box) return;
+  box.classList.toggle('open');
+}
+
+// ---- ANSWER REVEAL FUNCTIONS ----
+
+let allAnswersShown = false;
+function toggleAllAnswers() {
+  allAnswersShown = !allAnswersShown;
+  part2Data.forEach((item, i) => {
+    const num = i + 1;
+    const box = document.getElementById(`ansbox2-${num}`);
+    const btn = document.getElementById(`ansbtn2-${num}`);
+    if (box) {
+      box.classList.toggle('open', allAnswersShown);
+      if (btn) {
+        btn.classList.toggle('revealed', allAnswersShown);
+        btn.textContent = allAnswersShown ? '✓ Ẩn đáp án' : '👁 Xem đáp án';
+      }
+    }
+  });
+}
+
+function toggleGramNote(num, btn) {
+  const panel = document.getElementById(`gram-${num}`);
+  if (!panel) return;
+  const open = panel.classList.toggle('open');
+  btn.classList.toggle('revealed', open);
+  btn.textContent = open ? '📖 Ẩn giải thích' : '📖 Giải thích từ vựng';
+}
+
+function toggleAnswerBox(num, btn) {
+  const box = document.getElementById(`ansbox2-${num}`);
+  if (!box) return;
+  const open = box.classList.toggle('open');
+  btn.classList.toggle('revealed', open);
+  btn.textContent = open ? '✓ Ẩn đáp án' : '👁 Xem đáp án';
+}
+
+function toggleP3Answer(id1, id2, btn) {
+  const el1 = document.getElementById(id1);
+  if (el1) {
+    const open = el1.classList.toggle('open');
+    btn.classList.toggle('revealed', open);
+    btn.textContent = open ? '✓ Ẩn đáp án' : '👁 ' + (id2 ? 'Xem đáp án mẫu' : 'Gợi ý');
+  }
+  if (id2) {
+    const el2 = document.getElementById(id2);
+    if (el2) el2.classList.toggle('open', el1 && el1.classList.contains('open'));
+  }
+}
+
+function toggleP4Answer(boxId, viId, btn) {
+  const box = document.getElementById(boxId);
+  if (!box) return;
+  const open = box.classList.toggle('open');
+  btn.classList.toggle('revealed', open);
+  btn.textContent = open ? '✓ Ẩn câu mẫu' : '👁 Xem câu mẫu đáp án';
+  // hide vi when closing
+  if (!open) {
+    const vi = document.getElementById(viId);
+    if (vi) vi.classList.remove('open');
+  }
+}
+
+function toggleP4Vi(viId, btn) {
+  const el = document.getElementById(viId);
+  if (!el) return;
+  const open = el.classList.toggle('open');
+  btn.classList.toggle('active', open);
+  btn.textContent = open ? '🇻🇳 Ẩn tiếng Việt' : '🇻🇳 Dịch tiếng Việt';
+}
+
+// Sync Part 4 answer from Part 3 inputs dynamically
+function syncP4Answer(slot) {
+  const categories = ['actor', 'cartoon character', 'person/place', 'movie'];
+  const pronouns = [['she','her','wonderful','talented'], ['he/she','them','funny','popular'], ['it','it','beautiful','famous'], ['it','it','great','amazing']];
+  const choiceEl = document.getElementById(`p3-choice-${slot}`);
+  const opinionEl = document.getElementById(`p3-opinion-${slot}`);
+  const ansEl = document.getElementById(`p4ans-text-${slot}`);
+  if (!choiceEl || !opinionEl || !ansEl) return;
+  const choice = choiceEl.value.trim() || '______';
+  const opinion = opinionEl.value.trim();
+  const adjs = opinion ? opinion.split(/[,\s]+/).filter(Boolean) : ['______', '______'];
+  const adj1 = adjs[0] || '______';
+  const adj2 = adjs[1] || '______';
+  ansEl.innerHTML = `I really like <b>${choice}</b>. I think it's/they're <b>${adj1}</b>. And it's/they're <b>${adj2}</b>, too.`;
+}
+
+// ---- DATA ----
+const part2Data = [
+  {
+    en: 'She has a beautiful face and hair. She\'s very <blank>.',
+    vi: 'Cô ấy có khuôn mặt và mái tóc đẹp. Cô ấy rất <điền từ>.',
+    viReq: 'Em nhỏ ơi, giúp tôi điền từ tiếng Anh vào câu: Cô ấy có khuôn mặt và mái tóc đẹp. Cô ấy rất gì? Từ tiếng Anh là gì?',
+    answer: 'pretty',
+    audio: 'part2/1.wav',
+    wordType: '🎨 Tính từ (Adjective)',
+    noteWord: 'pretty',
+    noteWordVi: 'xinh đẹp',
+    noteSubject: 'She (cô gái / phụ nữ)',
+    clues: ['beautiful face', 'beautiful hair'],
+    cluesVi: ['khuôn mặt đẹp', 'mái tóc đẹp'],
+    explain: '<b>pretty</b> dùng để tả vẻ đẹp ngoại hình của <b>phụ nữ / con gái</b> — khuôn mặt và mái tóc đẹp là gợi ý trực tiếp.',
+    explainVi: 'Câu đầu đã mô tả "<i>beautiful face and hair</i>" → đây là đặc điểm của vẻ đẹp bên ngoài → dùng <b>pretty</b>.',
+    wrongWords: ['handsome', 'brave', 'talented'],
+    wrongReasons: ['handsome chỉ dùng cho đàn ông', 'brave = dũng cảm, không liên quan ngoại hình', 'talented = tài năng, không phải ngoại hình']
+  },
+  {
+    en: 'My sister can sing, dance, and play sports. She\'s very <blank>.',
+    vi: 'Chị tôi có thể hát, nhảy và chơi thể thao. Chị ấy rất <điền từ>.',
+    viReq: 'Em nhỏ ơi, giúp tôi điền từ tiếng Anh vào câu: Chị tôi có thể hát, nhảy và chơi thể thao. Chị ấy rất gì? Từ tiếng Anh là gì?',
+    answer: 'talented',
+    audio: 'part2/2.wav',
+    wordType: '🎨 Tính từ (Adjective)',
+    noteWord: 'talented',
+    noteWordVi: 'tài năng',
+    noteSubject: 'She (chị gái — có nhiều kỹ năng)',
+    clues: ['can sing', 'can dance', 'play sports'],
+    cluesVi: ['biết hát', 'biết nhảy', 'chơi thể thao'],
+    explain: '<b>talented</b> = có nhiều tài năng, kỹ năng. Khi ai đó làm được <b>nhiều thứ giỏi</b> cùng lúc → dùng talented.',
+    explainVi: 'Câu đầu liệt kê 3 kỹ năng: hát + nhảy + thể thao → người có nhiều kỹ năng = <b>talented</b>.',
+    wrongWords: ['pretty', 'funny', 'brave'],
+    wrongReasons: ['pretty chỉ nói về ngoại hình', 'funny = hài hước, không liên quan kỹ năng', 'brave = dũng cảm, không phải kỹ năng nghệ thuật']
+  },
+  {
+    en: 'This man plays a part in a movie. He is an <blank>.',
+    vi: 'Người đàn ông này đóng vai trong phim. Anh ấy là một <điền từ>.',
+    viReq: 'Em nhỏ ơi, giúp tôi điền từ tiếng Anh: Người đàn ông này đóng vai trong phim. Anh ấy là một gì? Từ tiếng Anh là gì?',
+    answer: 'actor',
+    audio: 'part2/3.wav',
+    wordType: '👤 Danh từ (Noun)',
+    noteWord: 'actor',
+    noteWordVi: 'diễn viên (nam)',
+    noteSubject: 'He (người đàn ông — đóng phim)',
+    clues: ['plays a part', 'in a movie'],
+    cluesVi: ['đóng vai', 'trong bộ phim'],
+    explain: '<b>actor</b> là danh từ chỉ <b>nghề nghiệp</b> của người đàn ông đóng phim. Đây là ô điền <b>danh từ</b>, không phải tính từ!',
+    explainVi: '"<i>plays a part in a movie</i>" = đóng vai trong phim → đây là định nghĩa của <b>actor</b>. Lưu ý dùng "<b>an</b> actor" vì actor bắt đầu bằng nguyên âm "a".',
+    wrongWords: ['movies', 'athletes', 'person'],
+    wrongReasons: ['movies = bộ phim (số nhiều, không phải người)', 'athletes = vận động viên, không liên quan phim', 'person quá chung chung, không nói nghề gì']
+  },
+  {
+    en: 'Firefighters and police officers are very <blank>.',
+    vi: 'Lính cứu hỏa và cảnh sát rất <điền từ>.',
+    viReq: 'Em nhỏ ơi, giúp tôi điền từ tiếng Anh: Lính cứu hỏa và cảnh sát rất gì? Từ tiếng Anh là gì?',
+    answer: 'brave',
+    audio: 'part2/4.wav',
+    wordType: '🎨 Tính từ (Adjective)',
+    noteWord: 'brave',
+    noteWordVi: 'dũng cảm',
+    noteSubject: 'Firefighters & police officers (nghề nguy hiểm)',
+    clues: ['firefighters (lính cứu hỏa)', 'police officers (cảnh sát)'],
+    cluesVi: ['chạy vào đám cháy', 'đối mặt nguy hiểm mỗi ngày'],
+    explain: '<b>brave</b> = dũng cảm, không sợ nguy hiểm. Lính cứu hỏa và cảnh sát là những nghề <b>đối mặt hiểm nguy</b> mỗi ngày → brave.',
+    explainVi: 'Lính cứu hỏa chạy vào đám lửa, cảnh sát đối phó tội phạm — cả hai đều cần <b>dũng cảm</b> → <b>brave</b>. Không dùng "popular" hay "funny" vì không liên quan tính cách nghề nghiệp này.',
+    wrongWords: ['popular', 'funny', 'cool'],
+    wrongReasons: ['popular = nổi tiếng, không nói lên tinh thần nghề nghiệp', 'funny = hài hước, không phù hợp nghề nguy hiểm', 'cool = ngầu, quá thông thường']
+  },
+  {
+    en: 'Our teacher is funny and kind. She\'s a wonderful <blank>.',
+    vi: 'Giáo viên của chúng tôi vui tính và tốt bụng. Cô ấy là một <điền từ> tuyệt vời.',
+    viReq: 'Em nhỏ ơi, giúp tôi điền từ tiếng Anh: Giáo viên của chúng tôi vui tính và tốt bụng. Cô ấy là một người gì tuyệt vời? Từ tiếng Anh là gì?',
+    answer: 'person',
+    audio: 'part2/5.wav',
+    wordType: '👤 Danh từ (Noun)',
+    noteWord: 'person',
+    noteWordVi: 'người (con người)',
+    noteSubject: 'She (cô giáo)',
+    clues: ['a wonderful ___', 'funny and kind'],
+    cluesVi: ['một ___ tuyệt vời', 'vui tính và tốt bụng'],
+    explain: '<b>person</b> là danh từ dùng khi nói về <b>con người nói chung</b>. "a wonderful person" = một người tuyệt vời. Câu này khen <b>tính cách tổng thể</b> của cô giáo.',
+    explainVi: 'Chỗ trống nằm sau "a wonderful" → cần một <b>danh từ</b>. Cô giáo là con người → <b>person</b>. Không thể dùng "actor" hay "athlete" vì cô ấy không làm nghề đó.',
+    wrongWords: ['actor', 'athlete', 'movies'],
+    wrongReasons: ['actor = diễn viên, không phải cô giáo', 'athlete = vận động viên, sai nghề', 'movies = phim (vật, không phải người)']
+  },
+  {
+    en: 'He\'s tall, with a nice face and black hair. He\'s <blank>.',
+    vi: 'Anh ấy cao, có khuôn mặt đẹp và tóc đen. Anh ấy rất <điền từ>.',
+    viReq: 'Em nhỏ ơi, giúp tôi điền từ tiếng Anh: Anh ấy cao, khuôn mặt đẹp và tóc đen. Anh ấy gì? Từ tiếng Anh là gì?',
+    answer: 'handsome',
+    audio: 'part2/6.wav',
+    wordType: '🎨 Tính từ (Adjective)',
+    noteWord: 'handsome',
+    noteWordVi: 'đẹp trai / tuấn tú',
+    noteSubject: 'He (đàn ông)',
+    clues: ['He\'s tall', 'nice face', 'black hair'],
+    cluesVi: ['anh ấy (đàn ông)', 'cao ráo', 'khuôn mặt đẹp'],
+    explain: '<b>handsome</b> dùng để tả vẻ đẹp ngoại hình của <b>đàn ông / con trai</b>. Khác với <b>pretty</b> dùng cho phụ nữ.',
+    explainVi: 'Câu dùng "<i>He</i>" → đây là đàn ông. Mô tả ngoại hình đẹp của đàn ông → dùng <b>handsome</b>, không dùng "pretty" (dành cho phụ nữ).',
+    wrongWords: ['pretty', 'great', 'wonderful'],
+    wrongReasons: ['pretty chỉ dùng cho phụ nữ/con gái', 'great = tuyệt vời (chung chung, không tả ngoại hình)', 'wonderful = kỳ diệu (dùng cho sự việc, tính cách)']
+  },
+  {
+    en: '<blank> are so cool. I like tennis players and soccer players.',
+    vi: '<điền từ> thật tuyệt. Tôi thích vận động viên tennis và bóng đá.',
+    viReq: 'Em nhỏ ơi, giúp tôi điền từ tiếng Anh: Loại người gì thật tuyệt? Tôi thích vận động viên tennis và bóng đá. Từ tiếng Anh là gì?',
+    answer: 'athletes',
+    audio: 'part2/7.wav',
+    wordType: '👤 Danh từ số nhiều (Plural Noun)',
+    noteWord: 'athletes',
+    noteWordVi: 'các vận động viên',
+    noteSubject: 'Chủ ngữ — điền vào đầu câu',
+    clues: ['tennis players', 'soccer players', 'are (số nhiều)'],
+    cluesVi: ['vận động viên tennis', 'vận động viên bóng đá', '"are" → danh từ số nhiều'],
+    explain: '<b>athletes</b> = các vận động viên (số nhiều). Câu 2 đề cập tennis players và soccer players → đây đều là <b>athletes</b>.',
+    explainVi: 'Câu thứ 2 nói "<i>tennis players and soccer players</i>" → cả hai đều là vận động viên → chủ ngữ câu 1 là <b>athletes</b>. Động từ "<b>are</b>" xác nhận đây là số nhiều.',
+    wrongWords: ['movies', 'person', 'actor'],
+    wrongReasons: ['movies = phim (vật, không phải người)', 'person = số ít, không hợp với "are"', 'actor = diễn viên, không phải vận động viên']
+  },
+  {
+    en: 'There are many <blank> places to see in my country.',
+    vi: 'Có nhiều địa điểm <điền từ> để tham quan ở đất nước tôi.',
+    viReq: 'Em nhỏ ơi, giúp tôi điền từ tiếng Anh: Có nhiều địa điểm gì để tham quan ở đất nước tôi? Từ tiếng Anh là gì?',
+    answer: 'famous',
+    audio: 'part2/8.wav',
+    wordType: '🎨 Tính từ bổ nghĩa danh từ (Attributive Adjective)',
+    noteWord: 'famous',
+    noteWordVi: 'nổi tiếng',
+    noteSubject: 'places (địa điểm — danh từ được bổ nghĩa)',
+    clues: ['___ places', 'to see', 'in my country'],
+    cluesVi: ['địa điểm ___ để tham quan', 'nhiều người muốn đến xem'],
+    explain: '<b>famous</b> đứng <b>trước danh từ "places"</b> để bổ nghĩa: "<i>famous places</i>" = những địa điểm nổi tiếng. Đây là tính từ bổ nghĩa trực tiếp.',
+    explainVi: 'Chỗ trống nằm giữa "many" và "places" → cần một <b>tính từ</b> mô tả địa điểm. "Địa điểm để tham quan" → nơi nhiều người biết đến = <b>famous</b>.',
+    wrongWords: ['popular', 'wonderful', 'great'],
+    wrongReasons: ['popular cũng có thể dùng nhưng famous phổ biến hơn với địa điểm du lịch', 'wonderful thường dùng sau động từ "to be"', 'great thường tả chất lượng sự vật không phải mức độ nổi tiếng']
+  },
+  {
+    en: 'You can watch <blank> on TV or at the theater.',
+    vi: 'Bạn có thể xem <điền từ> trên TV hoặc ở rạp chiếu phim.',
+    viReq: 'Em nhỏ ơi, giúp tôi điền từ tiếng Anh: Bạn có thể xem gì trên TV hoặc ở rạp chiếu phim? Từ tiếng Anh là gì?',
+    answer: 'movies',
+    audio: 'part2/9.wav',
+    wordType: '🎬 Danh từ (Noun)',
+    noteWord: 'movies',
+    noteWordVi: 'các bộ phim',
+    noteSubject: 'Tân ngữ (Object) sau động từ "watch"',
+    clues: ['watch ___', 'on TV', 'at the theater'],
+    cluesVi: ['xem ___', 'trên tivi', 'ở rạp chiếu phim'],
+    explain: '<b>movies</b> là thứ ta "<b>watch</b>" (xem). TV và rạp chiếu phim đều là nơi xem phim → đây là gợi ý rõ ràng.',
+    explainVi: '"<i>watch</i>" + tân ngữ. "<i>at the theater</i>" = ở rạp chiếu phim → chỉ có thể xem <b>movies</b> ở rạp. "watch athletes" hay "watch actor" không tự nhiên.',
+    wrongWords: ['athletes', 'actor', 'famous'],
+    wrongReasons: ['athletes = vận động viên (người, không xem ở rạp)', 'actor = diễn viên (người, không phải thứ để xem)', 'famous = tính từ, không dùng làm tân ngữ của "watch"']
+  },
+  {
+    en: 'I\'d like to be a famous pop star or a rapper. They\'re so <blank>.',
+    vi: 'Tôi muốn trở thành ngôi sao pop hoặc rapper nổi tiếng. Họ thật <điền từ>.',
+    viReq: 'Em nhỏ ơi, giúp tôi điền từ tiếng Anh: Tôi muốn trở thành ngôi sao pop nổi tiếng. Họ thật gì? Từ tiếng Anh là gì?',
+    answer: 'cool',
+    audio: 'part2/10.wav',
+    wordType: '🎨 Tính từ (Adjective)',
+    noteWord: 'cool',
+    noteWordVi: 'ngầu / thú vị / ấn tượng',
+    noteSubject: 'They (pop stars & rappers)',
+    clues: ['pop star', 'rapper', 'I\'d like to be (muốn trở thành)'],
+    cluesVi: ['ngôi sao nhạc pop', 'rapper', 'câu nói sự ngưỡng mộ'],
+    explain: '<b>cool</b> = ngầu, ấn tượng theo phong cách trẻ trung. Pop stars và rappers thường được giới trẻ coi là <b>cool</b> — hình ảnh năng động, phong cách.',
+    explainVi: 'Người nói <i>muốn trở thành</i> pop star/rapper → thể hiện sự ngưỡng mộ → <b>cool</b> phù hợp với văn hóa âm nhạc trẻ. Không dùng "brave" hay "handsome" vì không liên quan phong cách này.',
+    wrongWords: ['brave', 'handsome', 'talented'],
+    wrongReasons: ['brave = dũng cảm, không liên quan âm nhạc', 'handsome chỉ nói ngoại hình, không tả phong cách', 'talented cũng đúng nhưng "cool" phù hợp hơn với văn hóa pop/rap']
+  },
+  {
+    en: 'Did you see the movie on TV last night? It was <blank>.',
+    vi: 'Bạn có xem phim trên TV tối qua không? Nó thật <điền từ>.',
+    viReq: 'Em nhỏ ơi, giúp tôi điền từ tiếng Anh: Bạn có xem phim trên TV tối qua không? Nó thật gì? Từ tiếng Anh là gì?',
+    answer: 'great',
+    audio: 'part2/11.wav',
+    wordType: '🎨 Tính từ (Adjective)',
+    noteWord: 'great',
+    noteWordVi: 'tuyệt / hay lắm',
+    noteSubject: 'It (bộ phim — vật)',
+    clues: ['the movie', 'It was ___'],
+    cluesVi: ['bộ phim', '"It" → chỉ đồ vật/sự việc'],
+    explain: '<b>great</b> = tuyệt vời, hay. Dùng để tả <b>chất lượng của sự vật</b> — phim hay → great. Chủ ngữ "It" là bộ phim (vật), không phải người.',
+    explainVi: '"<i>It</i>" chỉ bộ phim (không phải người). Ta khen phim hay → <b>great</b>. Không dùng "handsome/pretty" vì đó là ngoại hình người. Không dùng "brave" vì phim không dũng cảm được.',
+    wrongWords: ['handsome', 'brave', 'talented'],
+    wrongReasons: ['handsome/pretty chỉ dùng cho người', 'brave dùng cho người đối mặt nguy hiểm', 'talented dùng cho người có kỹ năng, không dùng cho phim']
+  },
+  {
+    en: 'Ha makes us laugh all the time. He\'s so <blank>.',
+    vi: 'Hà luôn khiến chúng tôi cười. Anh ấy thật <điền từ>.',
+    viReq: 'Em nhỏ ơi, giúp tôi điền từ tiếng Anh: Hà luôn khiến chúng tôi cười. Anh ấy thật gì? Từ tiếng Anh là gì?',
+    answer: 'funny',
+    audio: 'part2/12.wav',
+    wordType: '🎨 Tính từ (Adjective)',
+    noteWord: 'funny',
+    noteWordVi: 'hài hước / buồn cười',
+    noteSubject: 'He (Hà — người)',
+    clues: ['makes us laugh', 'all the time'],
+    cluesVi: ['khiến mọi người cười', 'luôn luôn'],
+    explain: '<b>funny</b> = hài hước, hay làm người khác cười. "<i>makes us laugh all the time</i>" là định nghĩa trực tiếp của "funny".',
+    explainVi: '"<i>makes us laugh</i>" = làm người khác cười → đây chính xác là nghĩa của <b>funny</b>. Câu 1 là gợi ý, câu 2 là kết luận.',
+    wrongWords: ['cool', 'great', 'wonderful'],
+    wrongReasons: ['cool = ngầu, không liên quan đến việc làm người khác cười', 'great = tuyệt vời chung chung', 'wonderful = kỳ diệu, không nói lên tính hài hước']
+  },
+  {
+    en: 'Everyone knows me because I\'m on TV. I\'m <blank>.',
+    vi: 'Mọi người đều biết tôi vì tôi xuất hiện trên TV. Tôi <điền từ>.',
+    viReq: 'Em nhỏ ơi, giúp tôi điền từ tiếng Anh: Mọi người đều biết tôi vì tôi xuất hiện trên TV. Tôi gì? Từ tiếng Anh là gì?',
+    answer: 'popular',
+    audio: 'part2/13.wav',
+    wordType: '🎨 Tính từ (Adjective)',
+    noteWord: 'popular',
+    noteWordVi: 'nổi tiếng / được nhiều người biết đến',
+    noteSubject: 'I (người nói — xuất hiện trên TV)',
+    clues: ['everyone knows me', 'I\'m on TV'],
+    cluesVi: ['mọi người đều biết', 'xuất hiện trên truyền hình'],
+    explain: '<b>popular</b> = được nhiều người biết đến, yêu thích. "Everyone knows me" = mọi người đều biết → đây là định nghĩa của popular.',
+    explainVi: '<b>popular</b> vs <b>famous</b>: cả hai đều nghĩa nổi tiếng, nhưng <b>popular</b> nhấn mạnh <i>được nhiều người yêu thích</i>, còn <b>famous</b> nhấn mạnh <i>được nhiều người biết đến</i>. Ở đây "on TV" → được công chúng yêu thích → <b>popular</b>.',
+    wrongWords: ['famous', 'great', 'cool'],
+    wrongReasons: ['famous cũng có thể dùng nhưng popular tự nhiên hơn với ngữ cảnh "on TV"', 'great = tuyệt vời chung, không nói về mức độ nổi tiếng', 'cool = ngầu, không mô tả sự nổi tiếng']
+  },
+  {
+    en: 'People all around the world love his movies. He\'s very <blank>.',
+    vi: 'Người khắp thế giới đều yêu thích phim của anh ấy. Anh ấy rất <điền từ>.',
+    viReq: 'Em nhỏ ơi, giúp tôi điền từ tiếng Anh: Người khắp thế giới yêu thích phim của anh ấy. Anh ấy rất gì? Từ tiếng Anh là gì?',
+    answer: 'famous',
+    audio: 'part2/14.wav',
+    wordType: '🎨 Tính từ (Adjective)',
+    noteWord: 'famous',
+    noteWordVi: 'nổi tiếng (toàn cầu)',
+    noteSubject: 'He (đạo diễn / diễn viên — được cả thế giới biết)',
+    clues: ['people all around the world', 'love his movies'],
+    cluesVi: ['người khắp thế giới', 'yêu thích phim của anh ấy'],
+    explain: '<b>famous</b> = nổi tiếng, được cả thế giới biết đến. Phạm vi "<i>all around the world</i>" cho thấy mức độ nổi tiếng rất rộng → famous.',
+    explainVi: '<b>famous</b> vs <b>popular</b>: Câu 14 nói "<i>all around the world</i>" → quy mô <b>toàn cầu</b> → <b>famous</b> phù hợp hơn. popular thường dùng trong phạm vi nhỏ hơn.',
+    wrongWords: ['popular', 'cool', 'wonderful'],
+    wrongReasons: ['popular phù hợp phạm vi nhỏ hơn, famous mạnh hơn khi nói "toàn thế giới"', 'cool không diễn tả mức độ nổi tiếng toàn cầu', 'wonderful tả tính cách/chất lượng, không nói về sự nổi tiếng']
+  },
+  {
+    en: 'She has done many <blank> things in her life. I want to be like her.',
+    vi: 'Cô ấy đã làm được nhiều điều <điền từ> trong cuộc đời. Tôi muốn trở nên giống cô ấy.',
+    viReq: 'Em nhỏ ơi, giúp tôi điền từ tiếng Anh: Cô ấy đã làm được nhiều điều gì trong cuộc đời? Tôi muốn trở nên giống cô ấy. Từ tiếng Anh là gì?',
+    answer: 'amazing',
+    audio: 'part2/15.wav',
+    wordType: '🎨 Tính từ bổ nghĩa danh từ (Attributive Adjective)',
+    noteWord: 'amazing',
+    noteWordVi: 'phi thường / đáng kinh ngạc',
+    noteSubject: 'things (những việc — danh từ được bổ nghĩa)',
+    clues: ['many ___ things', 'I want to be like her'],
+    cluesVi: ['nhiều điều ___', 'tôi muốn trở thành như cô ấy'],
+    explain: '<b>amazing</b> = phi thường, đáng kinh ngạc. "<i>amazing things</i>" = những điều phi thường. Câu 2 "I want to be like her" cho thấy cô ấy là người đặc biệt → amazing.',
+    explainVi: 'Chỗ trống nằm trước "<i>things</i>" → cần tính từ. Câu 2 thể hiện sự ngưỡng mộ lớn → cần từ mạnh, phi thường → <b>amazing</b>. "Great things" cũng đúng nhưng "amazing" diễn đạt sự ngưỡng mộ mạnh hơn.',
+    wrongWords: ['great', 'wonderful', 'popular'],
+    wrongReasons: ['great cũng đúng nhưng amazing mạnh và cụ thể hơn ở đây', 'wonderful thường dùng cho người/cảm xúc, ít dùng với "things"', 'popular = nổi tiếng, không diễn tả hành động phi thường']
+  }
+];
+
+// ---- BUILD PART 2 ----
+const container = document.getElementById('part2-items');
+part2Data.forEach((item, i) => {
+  const num = i + 1;
+  const viId = `vi2-${num}`;
+  const inputId = `input2-${num}`;
+  const answerId = `ans2-${num}`;
+
+  // Build sentence with blank
+  const parts = item.en.split('<blank>');
+  const sentenceHTML = parts[0] + `<input class="blank-input" id="${inputId}" placeholder="???" onchange="checkAnswer(${i})">` + (parts[1] || '');
+
+  const viParts = item.vi.split('<điền từ>');
+  const viHTML = viParts[0] + '<span style="color:var(--accent);font-weight:700;">[___]</span>' + (viParts[1] || '');
+
+  // Build grammar note panel HTML
+  const clueChips = item.clues.map((c,ci) => `<span class="clue-chip">🔑 ${c}</span><span class="clue-chip" style="background:#dcfce7;color:#166534;border-color:#86efac;">→ ${item.cluesVi[ci]}</span>`).join(' ');
+  const wrongChips = item.wrongWords.map((w,wi) => `<span class="wrong-chip">✗ ${w}</span><span style="font-size:0.78rem;color:#6b7280;"> ${item.wrongReasons[wi]}</span>`).join('<br>');
+
+  const gramHTML = `
+    <div class="gram-panel" id="gram-${num}">
+      <div class="gram-header">
+        📖 Giải thích tại sao chọn "<span style="font-weight:900;font-size:1rem;">${item.answer}</span>"
+      </div>
+      <div class="gram-body">
+        <div class="gram-card">
+          <div class="gram-card-title">✅ Từ đúng</div>
+          <div><span class="gram-word-badge">${item.answer}</span><span class="gram-type-badge">${item.wordType}</span></div>
+          <p style="margin-top:6px;"><b>Nghĩa:</b> ${item.noteWordVi}</p>
+          <p><b>Chủ thể:</b> ${item.noteSubject}</p>
+        </div>
+        <div class="gram-card">
+          <div class="gram-card-title">🔑 Gợi ý trong câu</div>
+          <p>${clueChips}</p>
+        </div>
+        <div class="gram-card" style="grid-column: 1/-1;">
+          <div class="gram-card-title">💡 Giải thích (tiếng Anh)</div>
+          <p>${item.explain}</p>
+        </div>
+        <div class="gram-card" style="grid-column: 1/-1;">
+          <div class="gram-card-title">🇻🇳 Giải thích (tiếng Việt)</div>
+          <p>${item.explainVi}</p>
+        </div>
+        <div class="gram-card" style="grid-column: 1/-1;">
+          <div class="gram-card-title">❌ Tại sao không dùng từ khác?</div>
+          <p>${wrongChips}</p>
+        </div>
+      </div>
+    </div>
+  `;
+
+  const div = document.createElement('div');
+  div.className = 'fill-item';
+
+  // Build full sentence with answer filled in for display
+  const answerFull = item.en.replace('<blank>', `<b style="color:var(--green)">${item.answer}</b>`);
+  const answerViDisplay = item.vi.replace('<điền từ>', `<b style="color:var(--green)">${item.answer}</b>`);
+
+  div.innerHTML = `
+    <div style="display:flex; align-items:flex-start; gap:8px;">
+      <span class="fill-num">${num}</span>
+      <div style="flex:1;">
+        <span class="fill-sentence">${sentenceHTML}</span>
+        <span class="answer-tag" id="${answerId}">✓ ${item.answer}</span>
+        <span class="fill-vi" id="${viId}" style="display:none;">${viHTML}</span>
+        <div class="answer-reveal" id="ansbox2-${num}">
+          <div class="answer-full">${answerFull}</div>
+          <div class="answer-vi">${answerViDisplay}</div>
+        </div>
+        ${gramHTML}
+        <div class="fill-controls">
+          <button class="btn btn-play" onclick="playAudio('${item.audio}', this)">▶ Nghe tiếng Anh</button>
+          <button class="btn btn-vi" onclick="toggleVi('${viId}', this)">🇻🇳 Xem tiếng Việt</button>
+          <button class="btn btn-answer" id="ansbtn2-${num}" onclick="toggleAnswerBox(${num}, this)">👁 Xem đáp án</button>
+          <button class="btn btn-gram" id="grambtn-${num}" onclick="toggleGramNote(${num}, this)">📖 Giải thích từ vựng</button>
+          <button class="btn btn-request" onclick="speakRequest(\`${item.viReq}\`)">🧒 Em đọc câu tiếng Việt</button>
+        </div>
+      </div>
+    </div>
+  `;
+  container.appendChild(div);
+});
+
+// ---- FUNCTIONS ----
+let currentAudio = null;
+let currentBtn = null;
+
+function playAudio(src, btn) {
+  // Stop current
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+    if (currentBtn) currentBtn.classList.remove('playing');
+  }
+
+  // If same button → stop
+  if (currentBtn === btn) {
+    currentAudio = null;
+    currentBtn = null;
+    return;
+  }
+
+  const audio = new Audio(src);
+  audio.onerror = () => {
+    // fallback to TTS if file not found
+    const text = btn.closest('.dialogue-line, .fill-item')?.querySelector('.line-en, .fill-sentence')?.textContent;
+    if (text) speakEnglish(text);
+    btn.classList.remove('playing');
+    currentBtn = null;
+  };
+  audio.onended = () => {
+    btn.classList.remove('playing');
+    if (currentBtn === btn) currentBtn = null;
+  };
+
+  btn.classList.add('playing');
+  currentAudio = audio;
+  currentBtn = btn;
+  audio.play().catch(() => {
+    // TTS fallback
+    const text = btn.closest('.dialogue-line, .fill-item')?.querySelector('.line-en, .fill-sentence')?.textContent?.replace(/\?\?\?/g, '');
+    if (text) speakEnglish(text);
+    btn.classList.remove('playing');
+    currentBtn = null;
+  });
+}
+
+function speakEnglish(text) {
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-US';
+  u.rate = 0.9;
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u);
+}
+
+function speakRequest(text) {
+  // Speak in Vietnamese as the child translator
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'vi-VN';
+  u.rate = 0.9;
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u);
+}
+
+function toggleVi(id, btn) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const hidden = el.style.display === 'none';
+  el.style.display = hidden ? 'block' : 'none';
+  btn.classList.toggle('active', hidden);
+  btn.textContent = hidden ? '🇻🇳 Ẩn tiếng Việt' : '🇻🇳 Xem tiếng Việt';
+}
+
+function checkAnswer(i) {
+  const item = part2Data[i];
+  const num = i + 1;
+  const input = document.getElementById(`input2-${num}`);
+  const ansTag = document.getElementById(`ans2-${num}`);
+  const val = input.value.trim().toLowerCase();
+  if (!val) return;
+  if (val === item.answer.toLowerCase()) {
+    input.classList.remove('wrong');
+    input.classList.add('correct');
+    ansTag.classList.add('show');
+  } else {
+    input.classList.remove('correct');
+    input.classList.add('wrong');
+    ansTag.classList.remove('show');
+  }
+}
+</script>
+</body>
+</html>
